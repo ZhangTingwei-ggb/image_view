@@ -2,6 +2,8 @@
 
 一个本地优先的 HE / IHC 病理切片双屏对比与像素级配准工作台。使用 React（Vite）+ Tailwind CSS + Leaflet 构建，支持普通 TIFF / BigTIFF、HE / IHC 双侧 GeoJSON、分角色目录导入，以及图像 / 标注的独立像素级微调。所有数据均在浏览器内解析，不上传服务器。
 
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://ZhangTingwei-ggb.github.io/image_view/)
+
 ## 快速开始
 
 ```bash

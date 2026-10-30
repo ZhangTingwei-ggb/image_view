@@ -4,8 +4,8 @@ export const DEMO_METADATA = {
     "number": "01",
     "key": "patient01",
     "geojsonName": "pat01.geojson",
-    "heImage": "/demo/HE_patient01.svg",
-    "ihcImage": "/demo/IHC_patient01.svg",
+    "heImage": import.meta.env.BASE_URL + "/demo/HE_patient01.svg",
+    "ihcImage": import.meta.env.BASE_URL + "/demo/IHC_patient01.svg",
     "geojson": {
       "type": "FeatureCollection",
       "name": "patient01 annotation",
@@ -395,8 +395,8 @@ export const DEMO_METADATA = {
     "number": "02",
     "key": "patient02",
     "geojsonName": "patient02.geojson",
-    "heImage": "/demo/HE_patient02.svg",
-    "ihcImage": "/demo/IHC_patient02.svg",
+    "heImage": import.meta.env.BASE_URL + "/demo/HE_patient02.svg",
+    "ihcImage": import.meta.env.BASE_URL + "/demo/IHC_patient02.svg",
     "geojson": {
       "type": "FeatureCollection",
       "name": "patient02 annotation",
@@ -660,8 +660,8 @@ export const DEMO_METADATA = {
     "number": "03",
     "key": "patient03",
     "geojsonName": "patient03_mask.geojson",
-    "heImage": "/demo/HE_patient03.svg",
-    "ihcImage": "/demo/IHC_patient03.svg",
+    "heImage": import.meta.env.BASE_URL + "/demo/HE_patient03.svg",
+    "ihcImage": import.meta.env.BASE_URL + "/demo/IHC_patient03.svg",
     "geojson": {
       "type": "FeatureCollection",
       "name": "patient03 annotation",
