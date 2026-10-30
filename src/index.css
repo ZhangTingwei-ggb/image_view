@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #1e1e1e;
+  color: #cccccc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid rgba(97, 149, 255, 0.72);
+  outline-offset: 2px;
+}
+
+::selection {
+  color: #f5f8ff;
+  background: rgba(79, 125, 243, 0.45);
+}
+
+/* A quiet scrollbar that matches the workbench chrome. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #454950 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+  background-color: #454950;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #59606a;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Leaflet                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  cursor: grab;
+  background-color: #181a1d;
+  background-image:
+    radial-gradient(circle at 50% 46%, rgba(48, 70, 112, 0.2), transparent 52%),
+    radial-gradient(rgba(168, 183, 211, 0.115) 1px, transparent 1.2px);
+  background-size:
+    auto,
+    22px 22px;
+  outline: none;
+}
+
+.leaflet-container.leaflet-drag-target {
+  cursor: grabbing;
+}
+
+.leaflet-image-layer {
+  box-shadow: 0 14px 52px rgba(0, 0, 0, 0.48);
+  will-change: opacity;
+}
+
+.leaflet-image-layer {
+  animation: slide-image-in 320ms ease-out both;
+}
+
+@keyframes slide-image-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.leaflet-control-container .leaflet-bottom.leaflet-right {
+  right: 10px;
+  bottom: 10px;
+}
+
+.leaflet-bar {
+  border: 1px solid rgba(124, 138, 162, 0.24) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.32) !important;
+}
+
+.leaflet-bar a,
+.leaflet-bar a:hover {
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  color: #bcc5d3;
+  background: rgba(38, 40, 45, 0.93);
+  border-bottom-color: rgba(124, 138, 162, 0.18);
+  backdrop-filter: blur(12px);
+  transition:
+    color 140ms ease,
+    background 140ms ease;
+}
+
+.leaflet-bar a:first-child {
+  border-radius: 7px 7px 0 0;
+}
+
+.leaflet-bar a:last-child {
+  border-bottom: 0;
+  border-radius: 0 0 7px 7px;
+}
+
+.leaflet-bar a:hover {
+  color: #f2f7ff;
+  background: rgba(55, 69, 91, 0.97);
+}
+
+.leaflet-bar a.leaflet-disabled {
+  color: #5d636e;
+  background: rgba(33, 35, 39, 0.82);
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
+.leaflet-interactive:focus {
+  outline: none;
+}
+
+.annotation-path {
+  pointer-events: none;
+}
+
+.no-image .leaflet-control-container {
+  display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Leaflet map wrapper                                                        */
+/* -------------------------------------------------------------------------- */
+
+.viewer-map .leaflet-container {
+  border-radius: 0;
+}
+
+.viewer-map::after {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 500;
+  border-radius: inherit;
+  box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.22);
+  content: '';
+}
+
+/* -------------------------------------------------------------------------- */
+/* Anchor registration markers                                                */
+/* -------------------------------------------------------------------------- */
+
+.anchor-cursor .leaflet-container {
+  cursor: crosshair;
+}
+
+.anchor-marker {
+  background: transparent;
+  border: 0;
+}
+
+.anchor-marker__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+
+.anchor-marker__cross {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+}
+
+.anchor-marker__cross::before,
+.anchor-marker__cross::after {
+  position: absolute;
+  content: '';
+  border-radius: 1px;
+  background: currentColor;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.55);
+}
+
+.anchor-marker__cross::before {
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+.anchor-marker__cross::after {
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.anchor-marker__dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  background: currentColor;
+  box-shadow: 0 0 0 2px rgba(20, 22, 26, 0.72);
+}
+
+.anchor-marker--fixed {
+  color: #ff8fa8;
+}
+
+.anchor-marker--fixed .anchor-marker__ring {
+  border-color: rgba(255, 143, 168, 0.72);
+  background: radial-gradient(
+    circle,
+    rgba(255, 65, 108, 0.2) 0%,
+    rgba(255, 65, 108, 0) 70%
+  );
+}
+
+.anchor-marker--moving {
+  color: #f5c272;
+  cursor: grab;
+}
+
+.anchor-marker--moving:active {
+  cursor: grabbing;
+}
+
+.anchor-marker--moving .anchor-marker__ring {
+  border-color: rgba(245, 194, 114, 0.78);
+  background: radial-gradient(
+    circle,
+    rgba(245, 166, 56, 0.24) 0%,
+    rgba(245, 166, 56, 0) 70%
+  );
+}
+
+
+/* Keycap used in keyboard hints. */
+.keycap {
+  display: inline-flex;
+  min-width: 19px;
+  height: 19px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(137, 150, 170, 0.25);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.26);
+  color: #c6ceda;
+  font-family: 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 10px;
+  line-height: 1;
+}
